@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <head>
     <script src = "land.js"></script>
+    <link rel = 'stylesheet' href = "land.css">
 </head>
 <body>
-    <div class = "dropdown">
-        
-        <h1>User Testing area ig</h1>
-        <button class = "dropOnHover">Forms</button>
-        <div id = "forms" class = "dropMenu">
-            <a onclick = "window.location.assign('/pages/forms/points/points.html')" title = "forms >> points >> new">Submit Points ></a>
-            <a onclick ="window.location.assign(
-                '/pages/forms/absences/absences.html'
-                )" title = "forms >> absences >> new">Notify us of Absences ></a>
-        </div>
+    <div class = "nav">
+        <nav role = "navigation"><ul>
+            <li>ThesLogo</li>
+            <li>
+            <div class = "drop">
+                <button class = "listElement" aria-expanded="false" aria-haspopup="listbox"> Forms</button>
+                  <div class = "dropContent">
+                    <a href = "forms/points/points.html">Points</a>
+                    <a href = "forms/absence/absence.html">Absence</a>
+                  </div>
+                
+            </div>
+            </li> 
+            <li>
+               <a class = "listElement">Shows</a>
+            </li>
+            <li>
+                <a class = "listElement">Writing space</a>
+            </li>
+        </ul></nav>
     </div>
+
+<h1>User Testing area ig</h1>
+
 </body>

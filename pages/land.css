@@ -1,0 +1,57 @@
+nav {
+    display: block;
+}
+
+ul {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: left;
+    padding-left: 0;
+}
+
+li{
+    list-style-type: none;
+
+}
+
+.listElement {
+    display:block;
+    padding: 16px;
+    background-color: white;
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+} 
+
+.drop {
+    display: inline-block;
+    position: relative;
+}
+
+.dropContent {
+    display:none;
+    position:absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    a {
+        display:block;
+        color:black;
+        text-decoration: none;
+        text-align: left;
+        background-color: lightgrey;
+        padding:12px 16px;
+    }
+}
+
+.listElement:hover {
+    background-color: lightgrey;
+    
+}
+
+.drop:hover .dropContent{
+    display:block;
+}
+
+.drop:hover .listElement{
+    background-color: lightgrey;
+}
