@@ -1,17 +1,16 @@
 <!DOCTYPE html>
+<!--this should be the site that users land on, not the forms for the actual members-->
 <head>
+    <script src = "//code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src = "index.js"></script>
-    <style src = "index.css"></style>
+    <link rel = "stylesheet" href = "index.css"></style>
 </head>
 <body>
-    <div class = "banner">Thespians Digital Platform</div>
-    <div class = "dropdown">
-        <button class = "dropOnHover">Forms</button>
-        <div id = "dropDown" class = "dropMenu">
-            <a onclick = "window.location.assign('/pages/forms/points/points.html')" title = "forms >> points >> new">Submit Points ></a>
-            <a onclick ="window.location.assign(
-                '/pages/forms/absences/absences.html'
-            )" title = "forms >> absences >> new">Notify us of Absences ></a>
-        </div>
+    <div class = "banner">
+        <h1>Thespians Digital Platform</h1>
     </div>
+
+    <!--test button to ensure that the user just log ins to a page-->
+    <button onclick = "test()">Login (testing)</button>
+    
 </body>
