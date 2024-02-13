@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <head>
-    <style>
-        .indent{
-            padding-left: 20px;
-        }
-    </style>
+    <link rel = "stylesheet" href = "points.css">
     <script src = "points.js"></script>
     <h1><input type = "button" title = "pages >> home" onclick="goHome()" >Points Sheet</h1>
 </head>
-<body>
-    <form action = "points.php" method="get">
-        1. Are you a member or an apprentice? <br>
-            <div class="indent">Member <input type="checkbox" onclick="disableById(apprentice)" id = "member"><br>Apprentice <input type="checkbox" onclick = "disableById(member)" id = "apprentice"></div><br>
-        2. Full Name: <br> <input type = "text" name="name"> <br> <br>
-        3. What type of theatre activity did you participate in?<br>
-            <select name = "activities" id="activity" class = "indent">
-                <option> N/A </option>
-                <option value = "play">Play/Musical</option>
-                <option value = "film">Film</option>
-            </select>
-        <br>
-        <!--do we want to do email or text message?-->
-        7. Check if you would like us to send you an email/text message of how many points you have: <br>
-        <input type="checkbox">
-        <div id = "condText">
-            Preferred Email: <br> <input type="text" name = "email">
-        </div> <br>
-        
-        <input type="submit">
-    </form>
+<body onload= "fillUserInfo()">
+    <div>logged in through: <h3 id = "userTell"></h3></div>
+    <div class = "form">
+        <!--name is implicit through logged in person-->
+        <ul>
+            <li> What type of theatre activity did you participate in?<br>
+                <select name = "activities" id="activity" class = "indent">
+                    <option> N/A </option>
+                    <option value = "play">Play/Musical</option>
+                    <option value = "film">Film</option>
+                </select>
+            </li>
+            <!--do we want to do email or text message?-->
+            <li> Check if you would like us to send you an email/text message of how many points you have: <br>
+                <input type="checkbox" onclick = "toggleText()">
+                <div id = "condText">
+                    Preferred Email: <br> <input type="text" name = "email">
+                </div>
+            </li>
+            
+            <input type="submit">
+        </ul>
+    </div>
     <div id = "out">
         
     </div>

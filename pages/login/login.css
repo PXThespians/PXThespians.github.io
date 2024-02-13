@@ -1,0 +1,22 @@
+.memberSelection {
+    display:grid;
+    padding-top: 5px;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    justify-content: left;
+    column-gap: 10px;
+}
+
+.indent{
+    padding-left: 30px;
+}
+
+.nameField {
+    display:block;
+    padding-top: 5px;
+    padding-bottom: 20px;
+}
+
+.questions {
+    padding-left: 20px;
+}

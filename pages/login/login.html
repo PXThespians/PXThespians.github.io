@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel = "stylesheet" href = "login.css">
+    <script src = "../../functions/sql-connect.js"></script>
+    <script src = "login.js"></script>
+    <title>User Login</title>
+    <h1>Login</h1>
+</head>
+
+<body onload = "checkForSavedPass()">
+    <div class = "questions">
+        <label for = input>Full Name (check attendance sheet for correct name)</label>
+        <div class = "nameField indent">
+            <input type = "text" placeholder = "Full Name" id = "name">
+        </div>
+        
+        <label for = input>Password</label>
+        <div class = "passField indent">
+            <input type = "text" placeholder = "Password" id = "password">
+        </div>
+
+        <label for = input>Save Password?</label>
+        <div>
+            <input type = "checkbox" id = "save">
+        </div>
+
+        
+    </div>
+    <button onclick = "login()">login </button>
+</body>
