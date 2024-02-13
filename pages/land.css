@@ -1,17 +1,32 @@
+
+
 nav {
     display: block;
+    position: fixed;
+    overflow: visible;
+    width:80%
+}
+
+.notnav {
+    padding-top: 60px
 }
 
 ul {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
     justify-content: left;
-    padding-left: 0;
+    padding-left: 10%;
+    margin: 0;
 }
 
 li{
     list-style-type: none;
-
+    width: 100%;
+    a{
+        text-decoration: none;
+        font-size: medium;
+        color:black;
+    }
 }
 
 .listElement {
@@ -54,4 +69,11 @@ li{
 
 .drop:hover .listElement{
     background-color: lightgrey;
+}
+
+.floatRight{
+    float: right;
+    text-decoration: none;
+    color:black;
+    padding-right: 10%;
 }

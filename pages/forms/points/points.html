@@ -2,32 +2,67 @@
 <head>
     <link rel = "stylesheet" href = "points.css">
     <script src = "points.js"></script>
-    <h1><input type = "button" title = "pages >> home" onclick="goHome()" >Points Sheet</h1>
+    <title>Points Submission</title>
+    <link rel="icon" type="image/x-icon" href="/graphics/logo.png">
 </head>
 <body onload= "fillUserInfo()">
-    <div>logged in through: <h3 id = "userTell"></h3></div>
-    <div class = "form">
-        <!--name is implicit through logged in person-->
-        <ul>
-            <li> What type of theatre activity did you participate in?<br>
-                <select name = "activities" id="activity" class = "indent">
-                    <option> N/A </option>
-                    <option value = "play">Play/Musical</option>
-                    <option value = "film">Film</option>
-                </select>
-            </li>
-            <!--do we want to do email or text message?-->
-            <li> Check if you would like us to send you an email/text message of how many points you have: <br>
-                <input type="checkbox" onclick = "toggleText()">
-                <div id = "condText">
-                    Preferred Email: <br> <input type="text" name = "email">
+    <div class = "navList">
+        <nav role = "navigation"><ul>
+            <li><a href = "/pages/land.html"><span>logohere</span></a></li>
+            <li>
+            <div class = "drop">
+                <button class = "listElement" aria-expanded="false" aria-haspopup="listbox"> Forms</button>
+                <div class = "dropContent">
+                    <a href = "/pages/forms/points/points.html">Points</a>
+                    <a href = "/pages/forms/absence/absence.html">Absence</a>
                 </div>
+                
+            </div>
+            </li> 
+            <li>
+            <a class = "listElement">Shows</a>
             </li>
-            
-            <input type="submit">
+            <li>
+                <a class = "listElement">Writing space</a>
+            </li>
+            <li hidden = "true" id = "restricted">
+                <a class = "listElement" href = "/pages/officers/secret.html">Officer Space</a>
+            </li>
+        </ul></nav>
+        <ul class = "floatRight">
+            <div class = "drop">
+                <button class = "listElement" aria-expanded="false" aria-haspopup="listbox" style = "display: grid; grid-template-columns: auto auto;"><img src ="/graphics/userbutton.png" style = "height: 20px;"><p id = "usernameplace" style = "margin: 0px; padding-left: 10px;"></p></button>
+                <div class = "dropContent">
+                    <a href = "/pages/me/me.html">Profile</a>
+                    
+                    <a class = "listElement" href = "/index.html" onclick = "logout()">Log Out</a>
+                </div>
+            </div>
         </ul>
     </div>
-    <div id = "out">
-        
+    <div class = "notnav">
+    <h1>Points Sheet</h1>
+    <div style = "display: grid; grid-template-columns: auto auto; justify-content: left; column-gap: 10px;">logged in through:   <p id = "userTell" style = "margin: 0px"></p></div>
+        <div class = "form">
+            <!--name is implicit through logged in person-->
+            <ul>
+                <li> What type of theatre activity did you participate in?<br>
+                    <select name = "activities" id="activity" class = "indent">
+                        <option> N/A </option>
+                        <option value = "play">Play/Musical</option>
+                        <option value = "film">Film</option>
+                    </select>
+                </li>
+                <!--do we want to do email or text message?-->
+                <li> Check if you would like us to send you an email/text message of how many points you have: <br>
+                    <input type="checkbox" onclick = "toggleText()">
+                    <div id = "condText">
+                        Preferred Email: <br> <input type="text" name = "email">
+                    </div>
+                </li>
+
+                <input type="submit">
+            </ul>
+        </div>
     </div>
 </body>

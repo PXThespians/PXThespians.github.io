@@ -23,11 +23,17 @@ function login(){
         if (inPass == "loremipsum"){
             localStorage.clear()
             localStorage.setItem("username", inName)
-            if (document.getElementById("save").checked != null){
+            if (document.getElementById("save").checked == true){
                 localStorage.setItem("password", inPass)
             }
             localStorage.setItem("userID", 1001)
+            // if(membertype == 'officer'){}
+            localStorage.setItem("membertype", 'officer')
             window.location.assign('../land.html')
+        } else {
+            document.getElementById('warning').setAttribute('hidden', false)
         }
+    } else {
+        document.getElementById('warning').setAttribute('hidden', false)
     }
 }
