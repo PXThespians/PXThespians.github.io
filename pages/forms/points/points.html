@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <head>
+    <link rel = "stylesheet" href = "/pages/nav.css">
     <link rel = "stylesheet" href = "points.css">
+    
     <script src = "points.js"></script>
     <title>Points Submission</title>
     <link rel="icon" type="image/x-icon" href="/graphics/logo.png">
@@ -45,7 +47,7 @@
     <div style = "display: grid; grid-template-columns: auto auto; justify-content: left; column-gap: 10px;">logged in through:   <p id = "userTell" style = "margin: 0px"></p></div>
         <div class = "form">
             <!--name is implicit through logged in person-->
-            <ul>
+            <ul class = "questions">
                 <li> What type of theatre activity did you participate in?<br>
                     <select name = "activities" id="activity" class = "indent">
                         <option> N/A </option>
@@ -55,10 +57,7 @@
                 </li>
                 <!--do we want to do email or text message?-->
                 <li> Check if you would like us to send you an email/text message of how many points you have: <br>
-                    <input type="checkbox" onclick = "toggleText()">
-                    <div id = "condText">
-                        Preferred Email: <br> <input type="text" name = "email">
-                    </div>
+                    <input type="checkbox" name = "email">
                 </li>
 
                 <input type="submit">

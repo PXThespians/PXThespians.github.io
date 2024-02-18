@@ -5,18 +5,17 @@ if($mysqli->connect_error) {
   exit('Could not connect');
 }
 
-$sql = "SELECT password, membertype
+$sql = "SELECT password, membertype, userID
 FROM all_users WHERE name = ?";
 
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s", $_GET['q']);
 if(!$stmt->execute()) echo "nouser";
 $stmt->store_result();
-$stmt->bind_result($pass, $type);
+$stmt->bind_result($pass, $type, $uid);
 $stmt->fetch();
 $stmt->close();
 
-echo $pass;
-echo $type
+echo "$pass,$type,$uid"
 
 ?>

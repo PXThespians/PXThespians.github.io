@@ -13,55 +13,55 @@ function checkForSavedPass(){
     }
 }
 
-function login(){
+async function fetchAndLog(){
     let inName = document.getElementById("name").value
-    let inPass = document.getElementById("password").value
-    let truPass = "";
-    // get password where username = inName
+    let userID = 0;
 
-    xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        truPass = this.responseText;
-        console.log(truPass)
-      }
-    };
-
-    xhttp.open("GET", "/functions/logincheck.php?q="+inName, true)
-    xhttp.send()
-    /*
-    if (truPass == "nouser"){
-        document.getElementById('error').innerText = "User does not exist"
-    } else if(inPass == truPass) {
-        localStorage.setItem("username", inName)
-        if (document.getElementById("save").checked == true){
-            localStorage.setItem("password", inPass)
-        }
-        localStorage.setItem("userID", 1001)
-        // if(membertype == 'officer'){}
-        localStorage.setItem("membertype", 'officer')
-        window.location.assign('../land.html')
-    } else {
-        document.getElementById('error').innerText = "Password incorrect"
-    }
-    
-
-    // this will eventually be modified to be sql code
-    if (inName == "Aaron Li" ) {// will eventually check if exists in sql database
-        if (inPass == "loremipsum"){
-            localStorage.clear()
-            localStorage.setItem("username", inName)
-            if (document.getElementById("save").checked == true){
-                localStorage.setItem("password", inPass)
+    let myPromise = new Promise(function (resolve) {
+        xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "/functions/authenticate.php?q="+inName, true)
+        xhttp.onload = function(){
+            if (this.status == 200) {
+                resolve(this.responseText)
+            } else {
+                resolve('server error')
             }
-            localStorage.setItem("userID", 1001)
-            // if(membertype == 'officer'){}
-            localStorage.setItem("membertype", 'officer')
-            window.location.assign('../land.html')
+        }
+        xhttp.send()
+    })
+    // get password and membertype where username = inName
+    document.getElementById('infoBox').innerText = await myPromise
+
+    let stringify = document.getElementById('infoBox').innerText
+    let split = stringify.split(',')
+    let truPass = split[0];
+    let membertype = split[1];
+    userID = split[2];
+    
+    // sql end, password check
+    login(inName, truPass, membertype, userID)
+}
+
+function login(name, truPass, membertype, uid){
+    let inPass = document.getElementById("password").value
+    if (truPass.charAt(0) == '<'){
+        document.getElementById('error').innerText = "server error, please wait..."
+    } else 
+    if (truPass != ''){
+        if (truPass == "nouser"){ 
+            document.getElementById('error').innerText = "Name not found: check attendance sheet for correct name"
+        } else if (inPass == truPass) {
+            localStorage.setItem('username', name)
+            localStorage.setItem('membertype', membertype)
+            localStorage.setItem('userID', uid)
+            if (document.getElementById('save').getAttribute('checked') == true){
+                localStorage.setItem('qcnksaloegbjdcdb', 1)
+            }
+            window.location.assign('/pages/land.html')
         } else {
-            document.getElementById('warning').setAttribute('hidden', false)
+            document.getElementById('error').innerText = "Username or Password incorrect"
         }
     } else {
-        document.getElementById('warning').setAttribute('hidden', false)
-    }*/
+        console.log('failed')
+    }
 }

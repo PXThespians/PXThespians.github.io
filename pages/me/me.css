@@ -1,4 +1,11 @@
 
+nav {
+    display: block;
+    position: fixed;
+    overflow: visible;
+    width:80%
+}
+
 ul {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
