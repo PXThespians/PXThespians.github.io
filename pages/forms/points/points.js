@@ -1,11 +1,13 @@
-
+let previouscat = "performance"
 
 function goHome(){
     window.location.assign("../../../index.html")
 }
 
-function toggleText(){
-
+function openSelect(category){
+    document.getElementById(previouscat).hidden = true
+    document.getElementById(category).hidden = false
+    previouscat = category
 }
 
 function fillUserInfo(){
@@ -19,4 +21,8 @@ function fillUserInfo(){
     if (localStorage.getItem("membertype") == "officer"){
         document.getElementById("restricted").removeAttribute('hidden')
     }
+}
+
+function createPerformance(){
+    
 }

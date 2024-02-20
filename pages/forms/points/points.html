@@ -48,12 +48,46 @@
         <div class = "form">
             <!--name is implicit through logged in person-->
             <ul class = "questions">
-                <li> What type of theatre activity did you participate in?<br>
-                    <select name = "activities" id="activity" class = "indent">
-                        <option> N/A </option>
-                        <option value = "play">Play/Musical</option>
-                        <option value = "film">Film</option>
+                <li> What category of theatre activity did you participate in?<br>
+                    <select name = "category" id="category" class = "indent" onchange = 'openSelect(this.value)'>
+                        <option>select one...</option>
+                        <option value = "performance">Performance</option>
+                        <option value = "production">Production</option>
+                        <option value = "business">Business/logistics</option>
+                        <option value = "directing">Directing</option>
+                        <option value = "writing">Writing</option>
                     </select>
+                </li>
+                <li id = "performance" hidden = >
+                    <select name = "performrole" onchange = "">
+                        <option>select one...</option>
+                        <option value = "character">Named Character</option>
+                        <option value = "ensemble">Ensemble</option>
+                        <option value = "dancer">Dancer</option>
+                        <option value = "understudy" aria-details="tobedefined">Understudy</option>
+                        <option value = "film" aria-details = "perHour">Film Acting</option>
+                        <option value = "improv" aria-details = "tobedefined">Improv Squad</option>
+                    </select>
+                </li>
+                <li id = "production" hidden = true>
+                    <select name = "productrole" onchange = "">
+                        <option>select one...</option>
+                        <option value = "stagemanager">(Assistant) Stage Manager</option>
+                        <option value = "prodmanager">Production Manager</option>
+                        <option value = "lights">Dancer</option>
+                        <option value = "understudy" aria-details="tobedefined">Understudy</option>
+                        <option value = "film" aria-details = "perHour">Film Acting</option>
+                        <option value = "improv" aria-details = "tobedefined">Improv Squad</option>
+                    </select>
+                </li>
+                <li id = "business" hidden = true>
+                    business
+                </li>
+                <li id = "directing" hidden = true>
+                    directing
+                </li>
+                <li id = "writing" hidden = true>
+                    writing
                 </li>
                 <!--do we want to do email or text message?-->
                 <li> Check if you would like us to send you an email/text message of how many points you have: <br>
