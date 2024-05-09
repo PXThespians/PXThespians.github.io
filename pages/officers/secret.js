@@ -28,34 +28,34 @@ function closePopUp(){
   shadow.style.display = "none"
 }
 
-async function submit(){
-  let username = document.getElementById('name').value
-  let email = document.getElementById('email').value
-  let membertype = document.getElementsByName('membertype')[0].value
-  console.log(membertype)
-  let points = document.getElementById('points').value
-
-  // Clear area
-  
-
-
-  if (username != "" && email != "" && membertype != ""){
-    var xhttp;
-    let myPromise = new Promise(function (resolve) {
-      membertype = "officer"
-      xhttp = new XMLHttpRequest();
-      xhttp.open("POST", "/functions/createuser.php?user=${username}&email=${email}&mem=${membertype}&points=${points}", true)
-      xhttp.onload = function(){
-          if (this.status == 200) {
-              resolve('User Created!')
-          } else {
-              resolve('server error. Try again')
-          }
+$(function () {
+  $('#adder').on("submit", function(e){
+    var dataString = $(this).serialize();
+    console.log(dataString)
+    $.ajax({
+      type: "POST",
+      url: "/functions/createuser.php",
+      data: dataString,
+      statusCode: {
+        200: function(){
+          $("#confirm").show()
+          $("#error").hide()
+        },
+        500: function(xhr) {
+          $("#error").html("Something went wrong. Error: " + xhr.responseText)
+        }
       }
-      xhttp.send()
+    });
+    $("#adder input").each(function(){
+        $(this).val("")
     })
-    document.getElementById("confirm").innerText = await myPromise;
-  }
-
+    $("#adder input[type^='submit']").val("Create User")
+    $("#adder input[type^='password']").val("loremipsum")
+    return false;
   
+  })
+});
+
+function hide(what){
+  $("#${what}").hide();
 }

@@ -1,13 +1,17 @@
 <?php
 
-$mysqli = new mysqli("sql300.infinityfree.com", "if0_35978496", "sAqWxTUCxZX", "if0_35978496_ThespDatabase");
+$db_credentials = require __DIR__ . '/../db-credentials.php';
+
+$mysqli = new mysqli("sql300.infinityfree.com", $db_credentials['username'], $db_credentials['password'], "if0_35978496_ThespDatabase");
 if($mysqli->connect_error) {
   exit('Could not connect');
 }
 
-$memtype = $_POST['mem'];
+if (isset($_POST['memtype'])){
+    $memtype = $_POST['memtype'];
+}
 
-$idsql = "SELECT COUNT() FROM all_users WHERE membertype = ?";
+$idsql = "SELECT COUNT(*) FROM all_users WHERE membertype = ?";
 
 $stmt = $mysqli->prepare($idsql);
 $stmt->bind_param("s", $memtype);
@@ -16,7 +20,7 @@ $stmt->store_result();
 $stmt->bind_result($count);
 $stmt->fetch();
 
-switch($memtype[0]){
+switch($memtype){
     case "officer":
         $start = 1;
         break;
@@ -38,10 +42,18 @@ $insert = "INSERT INTO all_users VALUES (?, ?, ?, 'loremipsum', ? ,?)";
 
 // name, uid, membertype, password, email, points
 
-$stmt = $mysqli->prepare($insert);
-$stmt->bind_param("sissi", $_POST['user'], $id, $_POST['mem'], $_POST['email'], $_POST['points']);
-$stmt->execute();
+
+try {
+    $stmt = $mysqli->prepare($insert);
+    $stmt->bind_param("sissd", $_POST['name'], $id, $memtype, $_POST['email'], $_POST['points']);
+    $stmt->execute();
+}
+catch (Exception $e) {
+    http_response_code(500);
+    echo $e->getMessage();
+}
 $stmt->store_result();
 $stmt->close();
+
 
 ?>

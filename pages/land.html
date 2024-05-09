@@ -1,48 +1,19 @@
 <!DOCTYPE html>
 <head>
+    <script src = "/jquery.js"></script>
+    <script src = "nav.js"></script>
     <script src = "land.js"></script>
     <link rel = 'stylesheet' href = "nav.css">
     <title>Thespians 6812 Home</title>
     <link rel="icon" type="image/x-icon" href="/graphics/logo.png">
-</head>
-<body onload = "officerReveal()">
     <header>
-        <div class = "nav">
-            <nav role = "navigation"><ul>
-                <li><a href = "./land.html"><span>logohere</span></a></li>
-                <li>
-                <div class = "drop">
-                    <button class = "listElement" aria-expanded="false" aria-haspopup="listbox"> Forms</button>
-                    <div class = "dropContent">
-                        <a href = "forms/points/points.html">Points</a>
-                        <a href = "forms/absence/absence.html">Absence</a>
-                    </div>
-                    
-                </div>
-                </li> 
-                <li>
-                <a class = "listElement">Shows</a>
-                </li>
-                <li>
-                    <a class = "listElement">Writing space</a>
-                </li>
-                <li hidden = "true" id = "restricted">
-                    <a class = "listElement" href = "./officers/secret.html">Officer Space</a>
-                </li>
-            </ul></nav>
-            <ul class = "floatRight">
-                <div class = "drop">
-                    <button class = "listElement" aria-expanded="false" aria-haspopup="listbox" style = "display: grid; grid-template-columns: auto auto;"><img src ="../graphics/userbutton.png" style = "height: 20px;"><p id = "usernameplace" style = "margin: 0px; padding-left: 10px;"></p></button>
-                    <div class = "dropContent">
-                        <a href = "me/me.html">Profile</a>
-                        <a href = "/pages/settings/settings.html">Settings</a>
-                        <a class = "listElement" href = "../index.html" onclick = "logout()">Log Out</a>
-                    </div>
-                </div>
-            </ul>
+        <div id = "navigationDiv">
+            
         </div>
     </header>
-    <div class = "notnav">
+</head>
+<body>
+    <div class = "container">
         <h1>User Testing area ig</h1>
     </div> 
 </body>
