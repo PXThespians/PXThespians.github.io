@@ -1,0 +1,62 @@
+{ "pointssheet": [{"1performance": [
+        {"role": "Named Character", "perHour": false, "1act": 4, "full": 8},
+        {"role": "Ensemble", "perHour": false, "1act": 4, "full": 8},
+        {"role": "Dancer", "perHour": false, "1act": 4, "full": 8},
+        {"role": "Understudy", "perHour":false, "1act": 4, "full": 8},
+        {"role": "Film Acting", "perHour": 0.1},
+        {"role": "Wacky Wednesday", "perHour":false, "1act": 0.5}
+    ]},
+    {"2production": [
+        {"role": "Stage Manager + Assistant", "perHour":false, "1act": 6, "full": 8},
+        {"role": "Production Manager", "perHour":false, "1act": 6, "full": 8},
+        {"role": "Props Head", "perHour":false, "1act": 4, "full": 6},
+        {"role": "Lighting Designer", "perHour":false, "1act": 4, "full": 8},
+        {"role": "Costume Designers", "perHour":false, "1act": 4, "full": 6},
+        {"role": "Set Designer", "perHour":false, "1act": 4, "full": 8},
+        {"role": "Sound Designer", "perHour":false, "1act": 4, "full": 8},
+        {"role": "Stage Crew", "perHour": 0.1},
+        {"role": "Set/props Crew", "perHour": 0.1},
+        {"role": "Lighting/sound Crew", "perHour": 0.1},
+        {"role": "Makeup Crew", "perHour":false, "1act": 2, "full": 4},
+        {"role": "Orchestra", "perHour":false, "1act": 6, "full": 8},
+        {"role": "Video/Photographer", "perHour": 0.1}
+    ]},
+    {"3business": [
+        {"role": "Business Committee", "perHour":false, "1act": 2, "full": 4},
+        {"role": "Publicity Manager", "perHour":false, "1act": 3, "full": false},
+        {"role": "Publicity Crew", "perHour":false, "1act": 2, "full": 3},
+        {"role": "Ticket Manager", "perHour":false, "1act": 2, "full": 4},
+        {"role": "Ticket Crew", "perHour":false, "1act": 1, "full": 3},
+        {"role": "House Manager", "perHour":false, "1act": 2, "full": 4},
+        {"role": "Ushers", "perHour":false, "1act": 0.5, "full": 1.5},
+        {"role": "Programs", "perHour":false, "1act": 1, "full": 3},
+        {"role": "Program Crew", "perHour":false, "1act": 1, "full": 2}
+    ]},
+    {"4directing": [
+        {"role": "Director", "perHour":false, "1act": 6, "full": 8},
+        {"role": "Assistant Director", "perHour":false, "1act": 4, "full": 6},
+        {"role": "Vocal Director", "perHour":false, "1act": 6, "full": 8},
+        {"role": "Assistant Vocal Director", "perHour":false, "1act": 4, "full": 6},
+        {"role": "Video Producer/Director", "perHour":false, "1act": 3, "full": 4},
+        {"role": "Orchestra/Band Director", "perHour":false, "1act": 6, "full": 8},
+        {"role": "Assistant Orchestra/Band Director", "perHour":false, "1act": 4, "full": 6},
+        {"role": "Choreographer", "perHour":false, "1act": 6, "full": 8},
+        {"role": "Assistant Choreographer", "perHour":false, "1act": 4, "full": 6}
+    ]},
+    {"5writing": [
+        {"role": "Original Play", "perHour":false, "1act": 5, "full": 8},
+        {"role": "Original TV script", "perHour":false, "1act": 4, "full": 6},
+        {"role": "Original Radio Script", "perHour":false, "1act": 4, "full": 6}
+    ]},
+    {"6Miscellaneous": [
+        {"role": "Assistant Vocal Director", "perHour":false, "1act": 1, "full": 3},
+        {"role": "Assistant Vocal Director", "perHour":false, "1act": 1, "full": 3},
+        {"role": "Assistant Vocal Director", "perHour":false, "1act": 1, "full": 3},
+        {"role": "Assistant Vocal Director", "perHour":false, "1act": 1, "full": 3},
+        {"role": "Assistant Vocal Director", "perHour":false, "1act": 1, "full": 3},
+        {"role": "Assistant Vocal Director", "perHour":false, "1act": 1, "full": 3},
+        {"role": "Assistant Vocal Director", "perHour":false, "1act": 1, "full": 3},
+        {"role": "Assistant Vocal Director", "perHour":false, "1act": 1, "full": 3}
+    ]}
+]
+}
