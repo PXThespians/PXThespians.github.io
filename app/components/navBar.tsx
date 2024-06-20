@@ -9,8 +9,8 @@ export const links: LinksFunction = () => [
 ];
 
 const formTypes = [
-  {name: 'points', link: './routes/forms/points', key: 'p'},
-  {name: 'absence', link: './routes/forms/absence', key: 'a'}
+  {name: 'Points', link: './routes/forms/points', key: 'p'},
+  {name: 'Absence', link: './routes/forms/absence', key: 'a'}
 ]  
 
 const thing = [
@@ -22,7 +22,7 @@ function Navbar(){
     <nav>
       <ul className = "navigation">
         <li>
-          <DropDown name = 'forms' list = {formTypes}/>
+          <DropDown name = 'Forms' list = {formTypes}/>
         </li>
         <li>
           <a href = {'./routes/_secret.tsx'}>

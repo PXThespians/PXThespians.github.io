@@ -2,17 +2,20 @@ $drop: false;
 
 
 .dropdown {
+    
     &:hover #content{
         display: flex;
         flex-direction: column;
         align-items: left;
+        opacity: 1;
     }
-
 }
 
 #content {
     position:absolute;
+    padding:10px;
     display: none;
-    
+    opacity: 0;
+    transition: opacity 5s, transform 3s;
 }
 
