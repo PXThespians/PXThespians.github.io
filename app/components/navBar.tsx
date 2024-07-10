@@ -1,12 +1,5 @@
 import DropDown from "./dropDown"
-import stylesheet from '../tailwind.css';
-import { LinksFunction } from "@remix-run/node";
-import {Popover, PopoverButton, PopoverPanel} from "@headlessui/react"
-import '../styles/components.scss'
-
-export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: stylesheet },
-];
+import { Link } from "@remix-run/react"
 
 const formTypes = [
   {name: 'Points', link: './routes/forms/points', key: 'p'},
@@ -14,26 +7,28 @@ const formTypes = [
 ]  
 
 const thing = [
-
+  {aaaaa : true}
 ]
 
-function Navbar(){
+export default function Navbar(hasPermissions : boolean){
+  console.log(hasPermissions)
   return (
     <nav>
       <ul className = "navigation">
         <li>
           <DropDown name = 'Forms' list = {formTypes}/>
         </li>
+        {hasPermissions ? (
+          <li>
+            <Link to= {"/secret.tsx"} >
+              Officer Space 
+            </Link>
+          </li>
+        ) : (<></>)}
         <li>
-          <a href = {'./routes/_secret.tsx'}>
-            Officer Space 
-          </a>
-        </li>
-        <li>
+          <DropDown name = 'AAAA' list = {thing}/>
         </li>
       </ul>
     </nav>
   )
 }
-
-export default Navbar;

@@ -1,6 +1,5 @@
 import * as React from 'react'
 import Dropdown from 'react-bootstrap/Dropdown'
-import '../styles/buttons.scss'
 
 const formTypes = [
     {name: 'points', link: './routes/forms/points', key: 'p'},

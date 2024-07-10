@@ -1,8 +1,5 @@
-$drop: false;
-
 
 .dropdown {
-    
     &:hover #content{
         display: flex;
         flex-direction: column;
