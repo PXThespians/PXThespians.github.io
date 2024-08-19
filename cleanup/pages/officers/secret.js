@@ -1,17 +1,42 @@
+import { createRoot } from "react-dom/client";
+import { ReactDOM } from "react-dom";
+import Navbar from "/components/Navbar"
+
+// navBar init
+
+const nav = ReactDOM.createRoot(document.getElementById('navigation'));
+nav.render(<Navbar />);
+
+
 function showList(str) { // str is the membertype
-    var xhttp;
-    if (str == "") {
-      document.getElementById("table").innerHTML = "Table will be shown here...";
-      return;
-    }
-    xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("table").innerHTML = this.responseText;
+  let res;
+
+  // send sql query, save data as "res"
+  $.ajax({
+    type : "GET",
+    url : "/functions/getuserstable.php",
+    data: {q: str},
+    statusCode : {
+      200: function(xhr){
+        res = xhr.responseText
+      },
+      500: function(xhr){
+        res = ""
       }
-    };
-    xhttp.open("GET", "/functions/getuserstable.php?q="+str, true);
-    xhttp.send();
+    }
+  })
+
+  console.log(res)
+
+  // format as table with buttons, send to html
+  document.getElementById("table") = function (res) {
+    let result = 0;
+    for (i in res){
+      
+    }
+  }
+
+
 }
 
 function showPopUp(){

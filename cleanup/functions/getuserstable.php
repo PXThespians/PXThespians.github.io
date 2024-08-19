@@ -23,24 +23,7 @@ for ($i=0;$i<$len;$i++){
 }
 
 
-echo "<table>";
-  echo "<tr>";
-    echo "<th>Full Name</th>";
-    echo "<th>UserID</th>";
-    echo "<th>Member Type</th>";
-    echo "<th>Registered Email</th>";
-    echo "<th>Total Points</th>";
-  echo "</tr>";
-  for($i = 0; $i<$len; $i++){
-    echo "<tr>";
-      echo "<td>" . $result[$i]['name'] . "</td>";
-      echo "<td>" . $result[$i]['uid'] . "</td>";
-      echo "<td>" . $result[$i]['memtype'] . "</td>";
-      echo "<td>" . $result[$i]['email'] . "</td>";
-      echo "<td>" . $result[$i]['totpoints'] . "</td>";
-    echo "</tr>";
-  }
-echo "</table>";
+echo $result;
 
 $stmt->close();
 ?>
