@@ -20,6 +20,7 @@ const Login = () => {
             this.password = password
             this.email = email// how is 'this' in Javascript so powerful?
             this.loginState = 0
+            this.permissions = 0
 
             this.error = () => {
                 const passfield = document.getElementById("password")
@@ -49,6 +50,7 @@ const Login = () => {
                     // success conditions
                     if (response.data.message == "success"){
                         console.log("pas")
+                        this.permissions = response.data.permissions
                         this.password = ""
                         this.loginState = 1
                         this.success()

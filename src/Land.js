@@ -1,15 +1,15 @@
-import {React, lazy, Suspense} from "react"
-import Navbar from "./components/Navbar"
+import { React, lazy, Suspense } from "react"
 import { Routes, Route } from "react-router-dom"
 
 // places required
 import Home from "/src/pages/Home.js"
+import Navbar from "./components/Navbar"
 import Loading from "/src/components/Loading"
 const Points = lazy(() => import("/src/forms/Points.js"))
 const Control = lazy(() => import("/src/pages/Control.js"))
 
 const Land = (props) => {
-
+    // fake update
     return (
         <div className="container">
             <Navbar permissions = {props.permissions}></Navbar> 

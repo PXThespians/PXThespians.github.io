@@ -36,8 +36,12 @@ module.exports = {
       "crypto-browserify": false, //if you want to use this module also don't forget npm i crypto-browserify 
       "timers": false,
       "querystring": false,
-      
-    } 
+    },
+    alias: {
+      react: path.resolve(__dirname, "node_modules/react"),
+      'react-dom': path.resolve(__dirname, "node_modules/react-dom"),
+      'react-router-dom': path.resolve(__dirname, "node_modules/react-router-dom")
+    }
   },
   module: {
     rules: [

@@ -43,7 +43,7 @@ server.post("/api/authenticate", (req, res) => {
         console.log(result)
         if (err)             console.log(err)
         else if (result) {
-            if (result[0].password == userData.password)  res.json({message: "success"})
+            if (result[0].password == userData.password)  res.json({message: "success", permissions: result[0].membertype}) // send to end with membertype
             else                                          res.json({message: "fail"})
             console.log(status)
         } 
@@ -51,7 +51,15 @@ server.post("/api/authenticate", (req, res) => {
     })
 })
 
+server.get("/api/getUsersTable", (req, res) => {
+    const request = req.body
 
+    conn.query("Select * FROM all_users WHERE email EXISTS", (err, result) => {
+        if (err)            console.log(err) // server error
+        else if (result)    res.json({res: result, message: "success"}) // yay success condition
+        else                res.json({message: "non-server Error"}) // client error
+    })
+})
 
 // successful file compilation
 server.listen(PORT, function(){
