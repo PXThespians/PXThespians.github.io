@@ -1,26 +1,64 @@
-import { React, useState } from "react"
+import React, { useEffect, useState } from "react"
+import axios from "axios"
+import Loading from "/src/components/Loading"
+import "../styles/tables.css"
+
+const SERVER = "http://localhost:3000"
+console.log("entered control")
+
+
 
 const Control = () => {
-    const [matrix, setMatrix] = useState([])
+    const [matrix, setMatrix] = useState({})
 
-    const handleLoad = async () => {
-        const request = await axios.get("/api/getUsersTable")
+        useEffect(() => {
+            const handleLoad = async () => {
+                console.log("table loading...")
+                const request = await axios.get(SERVER + "/api/getUsersTable")
+            
+                const table = request.data.res
+                console.log(table)
+            
+                console.log("prepared")
+                setMatrix({array: table, isFetching: false})
+                console.log(matrix.isFetching)
+            }
+            
+            handleLoad()
+            
+        }, [])
 
-        const table = request.data.res
-        console.log(table)
-
-        setMatrix(table)
-    }
-
+        console.log("kms", matrix)
     return (
         <>
-            <div className = "table">
-                {matrix.map((row) => {
-                    // need to figure out which rows are which in the database
-                    row.map()
-                })}
-            </div>
-            <div onLoad={handleLoad}></div>
+            <table className = "table">
+                <thead className = "headers">
+                    <tr > 
+                        <th>Name</th>
+                        <th>User ID</th>
+                        <th>Email</th>
+                        <th>Member Type</th>
+                        <th>Total Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {matrix.isFetching == null ? <Loading /> : matrix.array.map((object, i) => {
+                        console.log("should be going?");
+                        return(
+                            <React.Fragment key = {i}>
+                                <tr>
+                                    <td>{object.name || "n/a"}</td>
+                                    <td>{object.userID|| "n/a"}</td>
+                                    <td>{object.email|| "n/a"}</td>
+                                    <td>{object.membertype|| "n/a"}</td>
+                                    <td>{object.totalpoints|| "n/a"}</td>
+                                </tr>
+                            </React.Fragment>
+                        )
+                        
+                    })}
+                </tbody>
+            </table>
         </>
     )
 }

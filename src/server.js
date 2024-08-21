@@ -53,8 +53,9 @@ server.post("/api/authenticate", (req, res) => {
 
 server.get("/api/getUsersTable", (req, res) => {
     const request = req.body
+    console.log("real")
 
-    conn.query("Select * FROM all_users WHERE email EXISTS", (err, result) => {
+    conn.query("Select * FROM all_users", (err, result) => {
         if (err)            console.log(err) // server error
         else if (result)    res.json({res: result, message: "success"}) // yay success condition
         else                res.json({message: "non-server Error"}) // client error

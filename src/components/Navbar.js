@@ -1,9 +1,8 @@
 import React from "react";
-import '/styles/Navbar.css'
-import 'sql.js'
+import { useNavigate } from "react-router-dom"
 
 const Navbar = (props) => {
-        
+    const navigate = useNavigate()
     /*if (props.permissions == true) {
         let secret = document.getElementById("restricted")
         secret.removeAttribute("hidden")
@@ -26,23 +25,22 @@ const Navbar = (props) => {
     }
         
     return (
-        
-        <div className = "navgroup" style = {navStyle}>
-            <div id = "input" className="navChoice">
-                
-                <label for = "here">
-                    <input id = "here" type = "radio" name = "place" value = "here" hidden/> 
-                    <div style = {words}>
-                        <p>here</p>
-                    </div>
-                </label>
+        <>
+            <div className = "navgroup" style = {navStyle}>
+                <div id = "input" className="navChoice">
+                    
+                    <label htmlFor = "control" >
+                        <div style = {words} id = "control" onClick={() => navigate("officers")}>
+                            <p>here</p>
+                        </div>
+                    </label>
+                </div>
+                <div className = "dropdown">
+                    <input id = "there" type= "radio" name = "place" value = "there"></input>
+                    <label htmlFor = "there">there</label>
+                </div>            
             </div>
-            <div className = "dropdown">
-                <input id = "there" type= "radio" name = "place" value = "there"></input>
-                <labeL for = "there">there</labeL>
-            </div>            
-        </div>
-        
+        </>
         /*<div className = "navList">
             <nav role = "navigation"><ul>
                 <li><a><span>logohere</span></a></li>

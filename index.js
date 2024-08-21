@@ -1,6 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, useNavigate, Routes, Route} from "react-router-dom"
+import { HashRouter } from "react-router-dom"
 import Login from './src/Login.js'
 import Land from "./src/Land.js"
 
@@ -23,11 +23,9 @@ if (localStorage.getItem("auth")) {
 }
 
 root.render(
-    <React.StrictMode>
-        <BrowserRouter>
+        <HashRouter>
             {place}
-        </BrowserRouter>
-    </React.StrictMode>
+        </HashRouter>
 )
 
 
