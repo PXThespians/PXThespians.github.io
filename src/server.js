@@ -23,10 +23,10 @@ conn.connect((err) => {
 
 const server = express()
 
-// used because of the port 3000 context
+// used because of the context as proxy at port 3000
 server.use(cors())
 
-// parsing json
+// parsing and generating json
 server.use(express.json())
 
 //* ALL SERVER REQUESTS SET BELOW HERE

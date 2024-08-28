@@ -9,22 +9,22 @@ import Land from "./src/Land.js"
 const container = document.getElementById('root')
 const root = createRoot(container)
 
-let place = {}
+let place = 0
 
 if (localStorage.getItem("auth")) {
     const auth = JSON.parse(localStorage.getItem("auth"))
 
         // this is weirdly written, but it's more understandable than the other way of doing the same thing
     if (auth.loginState == 1 && auth.email != null) { 
-        place = Land({permissions: auth.permissions})
+        place = 1 // land
     } else {
-        place = Login
+        place = 0 // login
     }
 }
 
 root.render(
         <HashRouter>
-            {place}
+            {place == 0 ? <Login /> : <Land permissions = {localStorage.getItem("auth").permission} />}
         </HashRouter>
 )
 
