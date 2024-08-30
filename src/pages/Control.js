@@ -1,12 +1,15 @@
 import React, { lazy, useEffect, useState } from "react"
 import axios from "axios"
 import Loading from "/src/components/Loading"
+import * as css from "/styles/tables.css"
 //import "../../styles/tables.css"
 
 const SERVER = "http://localhost:3000"
 console.log("entered control")
 
 //! we should probably delete "user id" property
+
+const Panel = lazy(() => import("/src/components/Panel.js"))
 
 const Control = () => {
     const [matrix, setMatrix] = useState({})
@@ -124,15 +127,13 @@ const Control = () => {
 
     console.log("kms", matrix)
 
-    const Panel = lazy(() => import("/src/components/Panel.js"))
-
     return (
         <>
             <div hidden id = "" className = "overlay">
-                <Panel parentCallback = {() => callback()}/>
+                <Panel />
             </div>
             <input type = "button" onClick = {(event) => dbInsert(insertType)} value = "Input "/>
-            <table className = "table">
+            <table className = "table" border = "1">
                 <thead className = "headers">
                     <tr> 
                         <th>Name <input type="button" id = "name" onClick={(event) => matrixSort(event.target.id, false)}/></th>
