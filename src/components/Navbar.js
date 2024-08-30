@@ -8,36 +8,27 @@ const Navbar = (props) => {
         secret.removeAttribute("hidden")
     }*/
 
-    // styling
-    const navStyle = {
-        display: "flex",
-        gridTemplateColumns: "auto auto",
-        margin: "0px 50px",
-        alignContent: "center",
-        justifyContent: "space-evenly",
-        alignItems: "center",
-    }
-    const inputStyle = {
-        padding: "10px"
-    }
-    const words = {
-        width: "100px", height: "50px", margin: "0px", textAlign: "center"
-    }
+    // stylin
         
     return (
         <>
-            <div className = "navgroup" style = {navStyle}>
+            <div className = "navgroup">
                 <div id = "input" className="navChoice">
                     
                     <label htmlFor = "control" >
-                        <div style = {words} id = "control" onClick={() => navigate("officers")}>
-                            <p>here</p>
+                        <div id = "control" onClick={() => navigate("officers")}>
+                            <p>Panel</p>
                         </div>
                     </label>
                 </div>
                 <div className = "dropdown">
-                    <input id = "there" type= "radio" name = "place" value = "there"></input>
-                    <label htmlFor = "there">there</label>
+                    <label htmlFor = "form-points">
+                        <div id = "points" onClick = {() => navigate("points")}>
+                            <p>Points</p>
+                        </div>
+                    </label>
+                    <label htmlFor= "form-absences"> 
+                    </label>
                 </div>            
             </div>
         </>

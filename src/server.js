@@ -20,7 +20,7 @@ conn.connect((err) => {
     }
     console.log('Connected to the database as ID ' + conn.threadId);
 });
-
+// implement hashing
 const server = express()
 
 // used because of the context as proxy at port 3000

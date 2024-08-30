@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { lazy, useEffect, useState } from "react"
 import axios from "axios"
 import Loading from "/src/components/Loading"
 //import "../../styles/tables.css"
@@ -6,11 +6,11 @@ import Loading from "/src/components/Loading"
 const SERVER = "http://localhost:3000"
 console.log("entered control")
 
-
+//! we should probably delete "user id" property
 
 const Control = () => {
     const [matrix, setMatrix] = useState({})
-    const [sortDirection, setSortDirection] = useState({})
+    const [insertType, setInsertType] = useState({})
 
     useEffect(() => { 
         const handleLoad = async () => {
@@ -87,15 +87,13 @@ const Control = () => {
         console.log(array)
         quickSort(array, 0, array.length-1)
         // repopulate array with matrix's information   
-        
-        let end = () => {
-            if (reversed)   return array.length - 1
-            else            return 0
-        }  
 
+        console.log("bip", array)
         for (let i = 0; i <= array.length - 1; i++) {
-            array[end() - i] = matrix.array[array[i].index]
-
+            let direction
+            if (reversed)       direction = array.length - 1 - i
+            else                direction = i
+            array[direction] = matrix.array[array[i].index]
         }
 
         // some conditions require 
@@ -114,17 +112,26 @@ const Control = () => {
     }
 
     // code an insertion of a matrix into the database matrix
-    function dbInsert(matrix) {
+    const dbInsert = (matrix) => {
+        // given matrix, overlay onto previous data, 
 
+        // then update server
     }
 
-    function dbInsert(object){
-
+    const callback = (eventData) => {
+        setInsertType(eventData)
     }
 
     console.log("kms", matrix)
+
+    const Panel = lazy(() => import("/src/components/Panel.js"))
+
     return (
         <>
+            <div hidden id = "" className = "overlay">
+                <Panel parentCallback = {() => callback()}/>
+            </div>
+            <input type = "button" onClick = {(event) => dbInsert(insertType)} value = "Input "/>
             <table className = "table">
                 <thead className = "headers">
                     <tr> 
@@ -132,7 +139,7 @@ const Control = () => {
                         <th>User ID <input type="button" id = "userID" onClick={(event) => matrixSort(event.target.id, false)}/></th>
                         <th>Email <input type="button" id = "email" onClick={(event) => matrixSort(event.target.id, false)}/></th>
                         <th>Member Type <input type="button" id = "membertype" onClick={(event) => matrixSort(event.target.id, false)}/></th>
-                        <th>Total Points <input type="button" id = "totalpoints" onClick={(event) => upAndDown(event)} value = "v"/></th>
+                        <th>Total Points <input type="button" id = "totalpoints" onClick={(event) => upAndDown(event)}/></th>
                     </tr>
                 </thead>
                 <tbody>
